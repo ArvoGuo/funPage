@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="format-detection" content="email=no" />
+  <title>Document</title>
+</head>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  div {
+    height: 600px;
+    color: #fff;
+    background-color: black;
+  }
+  section {
+    width: 60%;
+    margin: 0 auto;
+    background-color: red;
+  }
+  div:nth-child(1){
+    background-color: pink;
+  }
+  div:nth-child(2){
+    background-color: blue;
+  }
+  div:nth-child(3){
+    background-color: green;
+  }
+  div:nth-child(4){
+    background-color: yellow;
+  }
+  div:nth-child(5){
+    background-color: gray;
+  }
+  .basic {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    transition: all 1s;
+  }
+  .full-width {
+    width: 100%;
+  }
+
+</style>
+<body>
+
+  <div funpage >
+    <section class="basic" fun-enter-class="full-width" fun-leave-class="">1</section>
+  </div>
+  <div funpage>
+    <section class="basic" fun-enter-class="full-width" fun-leave-class="">2</section>
+  </div>
+
+  <div funpage>
+    <section class="basic" fun-enter-class="full-width" fun-leave-class="">3</section>
+  </div>
+  <div funpage>
+    <section class="basic" fun-enter-class="full-width" fun-leave-class="" >4</section>
+  </div>
+  <div funpage>
+    <section class="basic" fun-enter-class="full-width" fun-leave-class="">ttt</section>
+  </div>
+  <div funpage>
+    <section class="basic" fun-enter-class="full-width" fun-leave-class="">ttt</section>
+  </div>
+
+</body>
+<script src="../dist/funpage.js"></script>
+<script>
+
+  funPage.init();
+  funPage.pages[0].enter();
+  funPage.on('up', function() {
+    var target = this.target;
+    var next = target.getNextSibling();
+    funPage.ScrollTo(next, function() {
+      target.leave();
+      next.enter();
+      funPage.endRun();
+    })
+  });
+
+  funPage.on('down', function() {
+    var target = this.target;
+    var prev = target.getPreviousSibling();
+    funPage.ScrollTo(prev, function() {
+      target.leave();
+      prev.enter();
+      funPage.endRun();
+    })
+  })
+</script>
+</html>
