@@ -24,21 +24,6 @@
     margin: 0 auto;
     background-color: red;
   }
-  div:nth-child(1){
-    background-color: pink;
-  }
-  div:nth-child(2){
-    background-color: blue;
-  }
-  div:nth-child(3){
-    background-color: green;
-  }
-  div:nth-child(4){
-    background-color: yellow;
-  }
-  div:nth-child(5){
-    background-color: gray;
-  }
   .basic {
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
@@ -50,27 +35,79 @@
     width: 100%;
   }
 
+  .box {
+    background-color: #999;
+    width: 30px;
+    height: 30px;
+    position: relative;
+  }
+  .opacity-0 {
+    opacity: 0;
+  }
+  .opacity-1 {
+    opacity: 1;
+  }
+  .left-0 {
+    left: 0;
+  }
+  .left-30 {
+    left: 30px;
+  }
+  .left-60 {
+    left: 60px;
+  }
+  .left-90 {
+    left: 90px;
+  }
+  .left-120 {
+    left: 120px;
+  }
+  .left-150 {
+    left: 150px;
+  }
+  .left-180 {
+    left: 180px;
+  }
+  .left-210 {
+    left: 210px;
+  }
+  .left-240 {
+    left: 240px;
+  }
+  .left-270 {
+    left: 270px;
+  }
+
+
 </style>
 <body>
 
   <div funpage >
-    <section class="basic" fun-enter-class="full-width" fun-leave-class="">1</section>
+    <section class="basic" fun-enter-class="full-width" >1</section>
   </div>
   <div funpage>
-    <section class="basic" fun-enter-class="full-width" fun-leave-class="">2</section>
+    <section class="basic" fun-enter-class="full-width" >2</section>
+    <div class="basic box opacity-0 left-0" fun-enter-class="opacity-1 left-30" fun-delay="1000"></div>
+    <div class="basic box opacity-0 left-0" fun-enter-class="opacity-1 left-60" fun-delay="2000"></div>
+    <div class="basic box opacity-0 left-0" fun-enter-class="opacity-1 left-90" fun-delay="3000"></div>
+    <div class="basic box opacity-0 left-0" fun-enter-class="opacity-1 left-120" fun-delay="4000"></div>
+    <div class="basic box opacity-0 left-0" fun-enter-class="opacity-1 left-150" fun-delay="5000"></div>
+    <div class="basic box opacity-0 left-0" fun-enter-class="opacity-1 left-180" fun-delay="6000"></div>
+    <div class="basic box opacity-0 left-0" fun-enter-class="opacity-1 left-210" fun-delay="7000"></div>
+    <div class="basic box opacity-0 left-0" fun-enter-class="opacity-1 left-240" fun-delay="8000"></div>
   </div>
 
   <div funpage>
-    <section class="basic" fun-enter-class="full-width" fun-leave-class="">3</section>
+    <section class="basic" fun-enter-class="full-width" >3</section>
   </div>
   <div funpage>
-    <section class="basic" fun-enter-class="full-width" fun-leave-class="" >4</section>
+    <section class="basic" fun-enter-class="full-width"  >4</section>
   </div>
   <div funpage>
-    <section class="basic" fun-enter-class="full-width" fun-leave-class="">ttt</section>
+    <section class="basic" fun-enter-class="full-width" >ttt</section>
   </div>
   <div funpage>
-    <section class="basic" fun-enter-class="full-width" fun-leave-class="">ttt</section>
+    <section class="basic" fun-enter-class="full-width" >ttt</section>
   </div>
 
 </body>

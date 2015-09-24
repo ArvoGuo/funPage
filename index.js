@@ -28,7 +28,7 @@ funPage.prototype.init = function(opts) {
   self.TAG = {
     PAGE: 'funpage',
     ENTER : 'fun-enter-class',
-    LEAVE : 'fun-leave-class'
+    DELAY : 'fun-delay'
   };
 
   self.pages = self.elemFactory(window.document.documentElement.querySelectorAll('['+ self.TAG['PAGE'] +']'));
@@ -56,7 +56,7 @@ funPage.prototype.elemFactory = function(elems) {
   for (i; i < elems.length; i ++) {
     elem = elems[i];
     elem.funEnterClass = elem.getAttribute(self.TAG['ENTER']);
-    elem.funLeaveClass = elem.getAttribute(self.TAG['LEAVE']);
+    elem.funDelay = parseInt(elem.getAttribute(self.TAG['DELAY'])) || 0;
     elem.childs = self.elemFactory(elem.querySelectorAll('['+ self.TAG['ENTER'] +']'));
     elem.getElemOffset = function() {
       var get = function(ele) {
@@ -115,15 +115,25 @@ funPage.prototype.elemFactory = function(elems) {
       return y.getAttribute(self.TAG['PAGE']) == null ? this : y;
     }
     elem.enter = function() {
-      this.removeClass(this.funLeaveClass).addClass(this.funEnterClass);
-      for (var i = 0; i < this.childs.length ; i ++) {
-        this.childs[i].removeClass(this.childs[i].funLeaveClass).addClass(this.childs[i].funEnterClass);
+      var self = this;
+      self.funTimeout = setTimeout(function() {
+        self.addClass(self.funEnterClass);
+      }, self.funDelay);
+
+      for (var i = 0; i < self.childs.length ; i ++) {
+        (function(i, self) {
+          self.childs[i].funTimeout = setTimeout(function() {
+            self.childs[i].addClass(self.childs[i].funEnterClass);
+          }, self.childs[i].funDelay);
+        })(i, self);
       }
     }
     elem.leave = function() {
-      this.removeClass(this.funEnterClass).addClass(this.funLeaveClass);
+      clearTimeout(this.funTimeout);
+      this.removeClass(this.funEnterClass);
       for (var i = 0; i < this.childs.length ; i ++) {
-        this.childs[i].removeClass(this.childs[i].funEnterClass).addClass(this.childs[i].funLeaveClass);
+        clearTimeout(this.childs[i].funTimeout);
+        this.childs[i].removeClass(this.childs[i].funEnterClass);
       }
     }
 
