@@ -1,0 +1,138 @@
+html {
+  height: 100%;
+}
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  div {
+    height: 100%;
+    color: #fff;
+    background-color: black;
+  }
+  section {
+    width: 60%;
+    margin: 0 auto;
+    background-color: red;
+  }
+  .basic {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    transition: all 1s;
+  }
+  .full-width {
+    width: 100%;
+  }
+
+  .box {
+    background-color: #999;
+    width: 30px;
+    height: 30px;
+    position: relative;
+  }
+
+  .flex {
+    display: flex;
+    display: -webkit-flex;
+  }
+
+  .flex.vertical {
+    flex-direction: column;
+  }
+
+  .flex-1 {
+    flex: 1;
+    -webkit-flex: 1;
+  }
+
+  .h-bar {
+    width: 0;
+    height: 40px;
+    margin-bottom: 20px;
+    background-color: pink;
+  }
+
+  .v-bar {
+    width: 50px;
+    height: 0;
+    background-color: #999;
+  }
+
+  .height-all {
+    height: 100%;
+  }
+
+  .width-all {
+    width: 100%;
+  }
+
+  .opacity-0 {
+    opacity: 0;
+  }
+  .opacity-1 {
+    opacity: 1;
+  }
+  .left-0 {
+    left: 0;
+  }
+  .left-30 {
+    left: 30px;
+  }
+  .left-60 {
+    left: 60px;
+  }
+  .left-90 {
+    left: 90px;
+  }
+  .left-120 {
+    left: 120px;
+  }
+  .left-150 {
+    left: 150px;
+  }
+  .left-180 {
+    left: 180px;
+  }
+  .left-210 {
+    left: 210px;
+  }
+  .left-240 {
+    left: 240px;
+  }
+  .left-270 {
+    left: 270px;
+  }
+  .right-0 {
+    margin-left: 270px;
+    right: 0;
+  }
+  .right-30 {
+    right: 30px;
+  }
+  .right-60 {
+    right: 60px;
+  }
+  .right-90 {
+    right: 90px;
+  }
+  .right-120 {
+    right: 120px;
+  }
+  .right-150 {
+    right: 150px;
+  }
+  .right-180 {
+    right: 180px;
+  }
+  .right-210 {
+    right: 210px;
+  }
+  .right-240 {
+    right: 240px;
+  }
+  .right-270 {
+    right: 270px;
+  }

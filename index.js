@@ -151,11 +151,22 @@ funPage.prototype.offHandler = function() {
 }
 
 funPage.prototype.touchStart = function(e) {
+  var self = this;
   this.finger = {
     x: e.pageX,
     y: e.pageY
   }
-  this.target = e.target;
+  this.target = findPage(e.target);
+  function findPage (target) {
+    while(target) {
+      if (target.hasAttribute(self.TAG['PAGE'])) {
+        return target;
+      }
+      target = target.parentElement;
+    }
+    console.warn('not find funpage');
+    return null;
+  }
 }
 
 funPage.prototype.touchEnd = function(e) {
