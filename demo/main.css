@@ -41,6 +41,7 @@ body {
 
   .flex.vertical {
     flex-direction: column;
+    -webkit-flex-direction: column;
   }
 
   .flex-1 {
